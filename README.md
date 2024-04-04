@@ -56,7 +56,7 @@ Please complete the course [Onboarding tutorial](tutorials/onboarding.md). Once 
  <td align="center"><a target="_blank" href="https://alonitac.github.io/DevOpsTheHardWay/multichoice-questions/k8s_core_objects.html"><img src="https://alonitac.github.io/DevOpsTheHardWay/img/qm.png" /></a></td>
  <td align="center"><a href="tutorials/k8s_core_objects.md#exercises"><img src="https://alonitac.github.io/DevOpsTheHardWay/img/pen.png" /></a></td>
 
-<td align="center"><a href="https://github.com/alonitac/KubernetesAdminProject">Kubernetes project I</a></td>
+<td align="center"></td>
 </tr>
 
 
