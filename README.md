@@ -84,7 +84,7 @@ Please complete the course [Onboarding tutorial](tutorials/onboarding.md). Once 
  <td>Networking</td>
  <td><a href="tutorials/networking_OSI_model.md">The OSI model</a></td>
  <td align="center"><a href="https://alonitac.github.io/DevOpsApr24/slides/networking_OSI_model.html"><img src="https://alonitac.github.io/DevOpsTheHardWay/img/slides.png" /></a></td>
- <td align="center"><a target="_blank" href="https://alonitac.github.io/DevOpsTheHardWay/multichoice-questions/networking_OSI_model.html"><img src="https://alonitac.github.io/DevOpsTheHardWay/img/qm.png" /></a></td>
+ <td align="center"><a target="_blank" href="https://alonitac.github.io/DevOpsTheHardWay/multichoice-questions/networking_OSI.html"><img src="https://alonitac.github.io/DevOpsTheHardWay/img/qm.png" /></a></td>
  <td align="center"><a href="tutorials/networking_OSI_model.md#exercises"><img src="https://alonitac.github.io/DevOpsTheHardWay/img/pen.png" /></a></td>
  <td align="center">&nbsp;</td>
 </tr>
