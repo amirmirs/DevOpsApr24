@@ -37,6 +37,40 @@ Please complete the course [Onboarding tutorial](tutorials/onboarding.md). Once 
  <td>&nbsp;</td>
 </tr>	
 
+<tr>
+ <td>3</td>
+ <td>Orchestration (K8S)</td>
+ <td><a href="tutorials/k8s_setup_and_intro.md">Kubernetes setup and intro</a></td>
+ <td align="center"><a href="tutorials/linux_intro.md#exercises"><img src="https://alonitac.github.io/DevOpsTheHardWay/img/slides.png" /></a></td>
+ <td align="center"><a target="_blank" href="https://alonitac.github.io/DevOpsTheHardWay/multichoice-questions/k8s_setup_and_intro.html"><img src="https://alonitac.github.io/DevOpsTheHardWay/img/qm.png" /></a></td>
+ <td align="center"><a href="tutorials/k8s_setup_and_intro.md#exercises"><img src="https://alonitac.github.io/DevOpsTheHardWay/img/pen.png" /></a></td>
+ <td align="center">&nbsp;</td>
+</tr>
+
+
+<tr>
+ <td>4</td>
+ <td>Orchestration (K8S)</td>
+ <td><a href="tutorials/k8s_core_objects.md">Kubernetes core objects</a></td>
+ <td align="center">&nbsp;</td>
+ <td align="center"><a target="_blank" href="https://alonitac.github.io/DevOpsTheHardWay/multichoice-questions/k8s_core_objects.html"><img src="https://alonitac.github.io/DevOpsTheHardWay/img/qm.png" /></a></td>
+ <td align="center"><a href="tutorials/k8s_core_objects.md#exercises"><img src="https://alonitac.github.io/DevOpsTheHardWay/img/pen.png" /></a></td>
+
+<td align="center"><a href="https://github.com/alonitac/KubernetesAdminProject">Kubernetes project I</a></td>
+</tr>
+
+
+<tr>
+ <td>5</td>
+ <td>Orchestration (K8S)</td>
+ <td><a href="tutorials/k8s_pod_design.md">Kubernetes pod design</a></td>
+ <td align="center"><a href="tutorials/linux_intro.md#exercises"><img src="https://alonitac.github.io/DevOpsTheHardWay/img/slides.png" /></a></td>
+ <td align="center"><a target="_blank" href="https://alonitac.github.io/DevOpsTheHardWay/multichoice-questions/k8s_pod_design.html"><img src="https://alonitac.github.io/DevOpsTheHardWay/img/qm.png" /></a></td>
+ <td align="center"><a href="tutorials/k8s_pod_design.md#exercises"><img src="https://alonitac.github.io/DevOpsTheHardWay/img/pen.png" /></a></td>
+ <td align="center">&nbsp;</td>
+</tr>
+
+
 </table>
 
 
