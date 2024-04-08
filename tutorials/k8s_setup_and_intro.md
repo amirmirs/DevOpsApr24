@@ -150,13 +150,6 @@ Let's take a look on your `~/.kube/config`. The three main entries are `users`, 
 - A `context` is used to group access information under a convenient name. Each context has three parameters: `cluster`, `namespace`, and `user`, which basically says: "Use the credentials of the user X to access the Y namespace of the Z cluster".
 
 
----
-spot check
-which kubectl command can display your kubeconfig file? 
-`kubectl config view`
-what is the API server of minikube? 
----
-
 ## Deploy applications in the cluster
 
 Let's see Kubernetes cluster in all his glory! 
