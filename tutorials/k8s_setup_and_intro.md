@@ -70,7 +70,7 @@ Every cluster has at least one worker node.
 The **control plane** manages the worker nodes and the Pods in the cluster.
 In production environments, the control plane usually runs across multiple computers and a cluster usually runs multiple nodes, providing fault-tolerance and high availability.
 
-![](../.img/k8s-components.png)
+![](https://alonitac.github.io/DevOpsTheHardWay/img/k8s_components.png)
 
 #### Control Plane main components
 
@@ -166,7 +166,7 @@ The application is a web-based e-commerce app where users can browse items, add 
 
 Here is the app architecture and description of each microservice:
 
-<img src="../.img/k8s_online-boutique-arch.png" width="80%">
+<img src="https://alonitac.github.io/DevOpsTheHardWay/img/k8s_online-boutique-arch.png" width="80%">
 
 
 | Service                                              | Language      | Description                                                                                                                       |
@@ -206,9 +206,6 @@ kubectl port-forward svc/frontend 8080:80
 > kubectl port-forward svc/frontend 8080:80 --address 0.0.0.0
 > ```
 
-# Self-check questions
-
-[Enter the interactive self-check page](https://alonitac.github.io/__REPO_NAME__/multichoice-questions/k8s_setup_and_intro.html)
 
 # Exercises 
 
@@ -297,67 +294,3 @@ Then try to visit the k8s dashboard using `kubectl proxy` command. Make sure the
 Follow:    
 https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
 
-
-### :pencil2: Access minikube cluster from remote machine using Nginx reverse proxy
-
-To be done in Minikube running on an EC2 instance. 
-
-By design, minikube create k8s cluster with which you can communicate only from within the machine the cluster is running on. 
-If you want to communicate with your cluster (i.e. running `kubectl` commands) from a remote machine, you should use expose the cluster's API server using method like reverse proxy. 
-
-In this exercise we will expose your cluster using an Nginx reverse proxy.
-
-<img src="../.img/minikube-remote.png" width="50%">
-
-Start a minikube cluster by `minikube start -p test-cluster`.
-
-Get the kubeconfig content:
-
-```bash 
-kubectl config view
-```
-
-Under `users` entry, indicate the user used to connect to `test-cluster` and copy its `client-certificate` and `client-key` files to some directory on the minikube host machine.
-
-Create a directory in which the Nginx server configuration file would be located:
-
-```bash 
-sudo mkdir -p /etc/nginx/conf.d/
-```
-
-Inside the directory, create the following `minikube.conf` file:
-
-```text
-server {
-    listen       80;
-    listen  [::]:80;
-    server_name  localhost;  
-    
-    location / {   
-        proxy_pass https://MINIKUBE_IP:8443;
-        proxy_ssl_certificate /etc/nginx/certs/minikube-client.crt;
-        proxy_ssl_certificate_key /etc/nginx/certs/minikube-client.key;
-    }
-}
-```
-
-From the minikube host machine, launch a (containerized) Nginx server:
-
-```bash
-
-docker run -d --name nginx -p 8080:80 -v MINIKUBE_CLIENT_KEY_PATH:/etc/nginx/certs/minikube-client.key -v MINIKUBE_CLIENT_CERT_PATH:/nginx/certs/minikube-client.crt -v /etc/nginx/conf.d/:/etc/nginx/conf.d nginx
-```
-
-Use again the `kubectl config view` command to create a `custom-kubeconfig.yaml` file **in your local machine**. 
-Change the `server:` entry to the `http://<INSTANCE_IP>:80`, as well as other entries related to authentication. 
-
-At the end, communicate with the minikube cluster form your local machine:
-
-```bash
-kubectl get pods --kubeconfig custom-kubeconfig.yaml
-```
-
-### :pencil2: New k8s user 
-
-[//]: # (TODO Certificate signing requests )
-https://kubernetes.io/docs/reference/access-authn-authz/certificate-signing-requests/
