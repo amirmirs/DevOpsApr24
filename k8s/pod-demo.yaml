@@ -12,5 +12,3 @@ spec:
   containers:
   - name: server
     image: gcr.io/google-samples/microservices-demo/emailservice:v0.7.0
-  - name: testnginx
-    image: nginx
