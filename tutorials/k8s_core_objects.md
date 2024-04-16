@@ -743,7 +743,7 @@ Visit the app locally using `kubectl port-forward` command. E.g.:
 kubectl port-forward service/YOUR_SERVICE_NAME 8080:8080
 ```
 
-### :pencil2: 
+### :pencil2: Availability test service - k8s version
 
 Recall the [Availability test service](docker_containers.md#pencil2-availability-test-service) exercise. 
 
