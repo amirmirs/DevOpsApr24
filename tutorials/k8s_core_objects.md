@@ -724,7 +724,7 @@ Similarly to Secrets, ConfigMap can also be consumed as environment variables.
 
 ## Kubernetes core objects summary
 
-![](../.img/k8s-deployment.png)
+![](https://alonitac.github.io/DevOpsTheHardWay/img/k8s_deployment.png)
 
 # Self-check questions
 
@@ -732,6 +732,24 @@ Similarly to Secrets, ConfigMap can also be consumed as environment variables.
 
 
 # Exercises 
+
+### :pencil2: Deploy the 2048 game
+
+Create a `Deployment` for the 2048 game. You can either push the image you've built in the previous exercise to an ECR and use it, or use an [existed image from DockerHub](https://hub.docker.com/r/alexwhen/docker-2048) (the container listens on port 80).
+Expose the Deployment with a `Service` listening on port `8080`.
+Visit the app locally using `kubectl port-forward` command. E.g.:
+
+```bash
+kubectl port-forward service/YOUR_SERVICE_NAME 8080:8080
+```
+
+### :pencil2: 
+
+Recall the [Availability test service](docker_containers.md#pencil2-availability-test-service) exercise. 
+
+1. Deploy the InfluxDB and the Grafana containers as a Deployments in the cluster (including their `Service`s). 
+2. Use `kubectl port-forward` to forward the InfluxDB into your local machine, and run the availability `agent.sh` script. 
+3. Visualize the results in Grafana. 
 
 ### :pencil2: Grafana and Redis dashboard
 
@@ -770,6 +788,25 @@ In this exercise you deploy a [Grafana](https://grafana.com/) server with [Redis
     - Mount the configmap into `/etc/grafana/provisioning/datasources` directory within the container. The Grafana server read all `.yaml` files in this dir and applies the data sources configurations. 
     - Make sure the datasource is configured on a clean Grafana deployment. 
 
+
+### :pencil2: CronJobs 
+
+A [CronJob](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/) creates Jobs on a repeating schedule.
+
+You monitor the response time of the `adservice` application (responsible for the advertising in the Online Boutique) and notice the following anomalies:
+
+![](https://alonitac.github.io/DevOpsTheHardWay/img/k8s_cronjob_ex.png)
+
+From time to time, there are small amount of requests for which the response time in X10 greater the average.
+You investigate the issue and discover that JVM-based applications need to stay "warmed-up" to stay at their top speed. 
+
+Create a simple CronJob that runs every 60 seconds and performs a single request to to the `adservice`. 
+
+- The client code is already given to you under `k8s/adservice-client`.
+- You have to build the image.
+- The image is expected 2 environments variable: `AD_SERVICE_HOST` and `AD_SERVICE_PORT`, which are host and port of the advertising service deployed in your cluster.
+- Base your CronJob on the [the example from k8s official docs](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#example).
+
 ### :pencil2: Create a Job
 
 The [Job workload](https://kubernetes.io/docs/concepts/workloads/controllers/job/) is a way to reliably run "jobs" is the cluster, i.e. to run a Pod(s) **until a successful completion**. 
@@ -789,57 +826,6 @@ For that you want to create a simple Job that performs 100 HTTP requests to the 
 3. Apply the Job.
 4. Observe the Job logs to make sure it's running properly.
 5. Check the containers log of both `frontend` replicas (using `kubectl logs` command), make sure there is an incoming requests traffic. 
-
-
-### :pencil2: CronJobs 
-
-A [CronJob](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/) creates Jobs on a repeating schedule.
-
-You monitor the response time of the `adservice` application (responsible for the advertising in the Online Boutique) and notice the following anomalies:
-
-![](../.img/k8s_cronjob_ex.png)
-
-From time to time, there are small amount of requests for which the response time in X10 greater the average.
-You investigate the issue and discover that JVM-based applications need to stay "warmed-up" to stay at their top speed. 
-
-Create a simple CronJob that runs every 60 seconds and performs a single request to to the `adservice`. 
-
-- The client code is already given to you under `k8s/adservice-client`.
-- You have to build the image.
-- The image is expected 2 environments variable: `AD_SERVICE_HOST` and `AD_SERVICE_PORT`, which are host and port of the advertising service deployed in your cluster.
-- Base your CronJob on the [the example from k8s official docs](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#example).
-
-### :pencil2: Docker Compose migrated to K8S 
-
-Under `k8s/nginx_flask_mongodb` you'll find a Docker Compose project.
-
-![](../.img/k8s_nginx-flask-mongo.png)
-
-Migrate the `nginx`, `flask-app` and `mongo` services to your k8s cluster.
-Use Deployment, Service and ConfigMap objects. 
-
-Make sure the app is working by:
-
-```bash
-kubectl port-forward <nginx-service-or-pod> 8080:80
-```
-
-Then visit the app in `http://localhost:8080`. 
-
-### :pencil2: Deploy the 2048 game
-
-Create a `Deployment` for the 2048 game. You can either push the image you've built in the previous exercise to an ECR and use it, or use an [existed image from DockerHub](https://hub.docker.com/r/alexwhen/docker-2048) (the container listens on port 80).
-Expose the Deployment with a `Service` listening on port `8080`.
-Visit the app locally using `kubectl port-forward` command. E.g.:
-
-```bash
-kubectl port-forward service/YOUR_SERVICE_NAME 8080:8080
-```
-
-### :pencil2: Deploy a simple nodejs webserver and test load balancing 
-
-Build the `simple_nodejs_webserver` image and deploy it as a Deployment of 2 replicas using your own image, stored on ECR or Dockerhub ([registry-creds](https://minikube.sigs.k8s.io/docs/tutorials/configuring_creds_for_aws_ecr/) addon should be enabled in your Minikube). 
-
 
 ### :pencil2: Breaking changes during rolling update
 
@@ -884,17 +870,3 @@ Now stop `v2` and run `v1` again, observe how the server doesn't recognize you a
 4. Build the `v1` server with your fix, apply it in the cluster as a Deployment.  
 5. Build and apply `v2`. 
 6. Since it's hard to simulate a requests to both versions during the short time k8s performs the rolling update, rollback to `v1`, visit the server and make sure that you are authenticated. 
-
-### :pencil2: Service without selector
-
-Read the **Services without selectors** section in the official k8s docs about Services. 
-
-https://kubernetes.io/docs/concepts/services-networking/service/#services-without-selectors
-
-Create a Service object which routes traffic to an EC2 instance which is not part of your cluster's machines (but is part of the VPC).
-
-### :pencil2: Expose k8s dashboard NodePort 
-
-Create a Service of type `NodePort`, so you can visit the Kubernetes Dashboard (located in `kubernetes-dashboard` namespace) using the one of the cluster's Node public IP address.
-Make sure the NodePort port number is allows in the instance's security group. 
-
