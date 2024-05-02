@@ -122,16 +122,6 @@ Please complete the course [Onboarding tutorial](tutorials/onboarding.md). Once 
 <tr>
  <td>5</td>
  <td>Networking</td>
- <td><a href="tutorials/networking_dns.md">DNS protocol</a></td>
- <td align="center">&nbsp;</td>
- <td align="center"><a target="_blank" href="https://alonitac.github.io/DevOpsTheHardWay/multichoice-questions/networking_dns.html"><img src="https://alonitac.github.io/DevOpsTheHardWay/img/qm.png" /></a></td>
- <td align="center"><a href="tutorials/networking_dns.md#exercises"><img src="https://alonitac.github.io/DevOpsTheHardWay/img/pen.png" /></a></td>
- <td align="center">&nbsp;</td>
-</tr>
-
-<tr>
- <td>6</td>
- <td>Networking</td>
  <td><a href="tutorials/networking_security.md">Networks security</a></td>
  <td align="center">&nbsp;</td>
  <td align="center"><a target="_blank" href="https://alonitac.github.io/DevOpsTheHardWay/multichoice-questions/networking_security.html"><img src="https://alonitac.github.io/DevOpsTheHardWay/img/qm.png" /></a></td>
@@ -139,14 +129,25 @@ Please complete the course [Onboarding tutorial](tutorials/onboarding.md). Once 
  <td align="center">&nbsp;</td>
 </tr>
 
+
 <tr>
- <td>7</td>
+ <td>6</td>
  <td>Networking</td>
  <td><a href="tutorials/networking_ssh.md">SSH protocol</a></td>
  <td align="center">&nbsp;</td>
  <td align="center"><a target="_blank" href="https://alonitac.github.io/DevOpsTheHardWay/multichoice-questions/networking_ssh.html"><img src="https://alonitac.github.io/DevOpsTheHardWay/img/qm.png" /></a></td>
  <td align="center"><a href="tutorials/networking_ssh.md#exercises"><img src="https://alonitac.github.io/DevOpsTheHardWay/img/pen.png" /></a></td>
  <td align="center"></td>
+</tr>
+
+<tr>
+ <td>7</td>
+ <td>Networking</td>
+ <td><a href="tutorials/networking_dns.md">DNS protocol</a></td>
+ <td align="center">&nbsp;</td>
+ <td align="center"><a target="_blank" href="https://alonitac.github.io/DevOpsTheHardWay/multichoice-questions/networking_dns.html"><img src="https://alonitac.github.io/DevOpsTheHardWay/img/qm.png" /></a></td>
+ <td align="center"><a href="tutorials/networking_dns.md#exercises"><img src="https://alonitac.github.io/DevOpsTheHardWay/img/pen.png" /></a></td>
+ <td align="center">&nbsp;</td>
 </tr>
 
 </table>
