@@ -767,11 +767,6 @@ Other multi-container Pod patterns are **Proxies** and **Adapters**:
 - **Proxies:** Acts as a proxy to the mian container. For example, an Nginx container that pass the traffic to a Flask backend server.
 - **Adapter:** Used to standardize and normalize application input and output. For example, integrating a legacy system with a new framework by introducing an adapter container that translates calls between the two interfaces.
 
-# Self-check questions
-
-[Enter the interactive self-check page](https://alonitac.github.io/__REPO_NAME__/multichoice-questions/k8s_pod_deep_dive.html)
-
-
 # Exercises 
 
 ### :pencil2: Zero downtime during scale
@@ -780,7 +775,7 @@ Your goal in this exercise is to achieve zero downtime during scale up/down even
 
 The code can be found in `k8s/zero_downtime_node` (a simple Nodejs webserver).
 
-1. Build the image and push it to a dedicated ECR repo that you'll create.
+1. Build the image and push it to a dedicated DockerHub repo that you'll create.
 2. Deploy the app as a simple `Deployment` (with the corresponding `Service`). 
 3. Generate some incoming traffic (20 requests per second) from a dedicated pod: 
    ```bash
