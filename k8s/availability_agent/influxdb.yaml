@@ -1,0 +1,46 @@
+# k8s/deployment-demo.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: influxdb
+  labels:
+    app: influxdb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: influxdb
+  template:
+    metadata:
+        labels:
+          app: influxdb
+    spec:
+      containers:
+      - name: server
+        image: influxdb:1.8.10
+        env:
+          - name: INFLUXDB_HTTP_AUTH_ENABLED
+            value: 'true'
+          - name: INFLUXDB_ADMIN_USER
+            valueFrom:
+              secretKeyRef:
+                name: influxdb-user-password
+                key: username
+          - name: INFLUXDB_ADMIN_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: influxdb-user-password
+                key: password
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: influxdb-service
+spec:
+  selector:
+    app: influxdb
+  ports:
+    - protocol: TCP
+      port: 8086
+      targetPort: 8086
