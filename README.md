@@ -70,6 +70,15 @@ Please complete the course [Onboarding tutorial](tutorials/onboarding.md). Once 
  <td align="center">&nbsp;</td>
 </tr>
 
+<tr>
+ <td>6</td>
+ <td>Orchestration (K8S)</td>
+ <td><a href="tutorials/k8s_helm.md">Helm</a></td>
+ <td align="center"></td>
+ <td align="center"></td>
+ <td align="center"><a href="tutorials/k8s_pod_design.md#exercises"><img src="https://alonitac.github.io/DevOpsTheHardWay/img/pen.png" /></a></td>
+ <td align="center">&nbsp;</td>
+</tr>
 
 </table>
 
