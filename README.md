@@ -76,7 +76,17 @@ Please complete the course [Onboarding tutorial](tutorials/onboarding.md). Once 
  <td><a href="tutorials/k8s_helm.md">Helm</a></td>
  <td align="center"></td>
  <td align="center"></td>
- <td align="center"><a href="tutorials/k8s_pod_design.md#exercises"><img src="https://alonitac.github.io/DevOpsTheHardWay/img/pen.png" /></a></td>
+ <td align="center"><a href="tutorials/k8s_helm.md#exercises"><img src="https://alonitac.github.io/DevOpsTheHardWay/img/pen.png" /></a></td>
+ <td align="center">&nbsp;</td>
+</tr>
+
+<tr>
+ <td>7</td>
+ <td>Orchestration (K8S)</td>
+ <td><a href="tutorials/k8s_statefulset_and_storage.md">StatefulSets and Volumes</a></td>
+ <td align="center"></td>
+ <td align="center"><a target="_blank" href="https://alonitac.github.io/DevOpsTheHardWay/multichoice-questions/k8s_statefulset_and_storage.html"><img src="https://alonitac.github.io/DevOpsTheHardWay/img/qm.png" /></a></td>
+ <td align="center"><a href="tutorials/k8s_statefulset_and_storage.md#exercises"><img src="https://alonitac.github.io/DevOpsTheHardWay/img/pen.png" /></a></td>
  <td align="center">&nbsp;</td>
 </tr>
 

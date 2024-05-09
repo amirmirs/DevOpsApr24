@@ -726,10 +726,6 @@ Similarly to Secrets, ConfigMap can also be consumed as environment variables.
 
 ![](https://alonitac.github.io/DevOpsTheHardWay/img/k8s_deployment.png)
 
-# Self-check questions
-
-[Enter the interactive self-check page](https://alonitac.github.io/__REPO_NAME__/multichoice-questions/k8s_core_objects.html)
-
 
 # Exercises 
 
